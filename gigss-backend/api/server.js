@@ -34,8 +34,19 @@ const connect = async() => {
 };
 
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://668ab5214212c30606728fac--candid-gumption-164fd1.netlify.app'],
-  credentials: true, 
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'http://localhost:5173', 
+      'https://668ab5214212c30606728fac--candid-gumption-164fd1.netlify.app',
+      'https://gigss.vercel.app' // Add your Vercel frontend URL here
+    ];
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Your CORS policy does not allow access from this origin.'));
+    }
+  },
+  credentials: true, // Reflect the request origin, as defined by the `origin` option
 };
 
 app.use(cors(corsOptions));
