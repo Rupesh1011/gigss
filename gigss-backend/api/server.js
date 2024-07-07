@@ -33,7 +33,14 @@ const connect = async() => {
   }
 };
 
-app.use(cors({origin:process.env.FRONTEND_URL,credentials:true}));
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://668ab5214212c30606728fac--candid-gumption-164fd1.netlify.app'],
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, 
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
