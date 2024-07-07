@@ -52,7 +52,9 @@ app.use((err,req, res, next) =>{
   return res.status(errorStatus).send(errorMessage);
 });
 
-app.listen(3000, ()=>{
+const PORT = process.env.PORT;
+
+app.listen(PORT, ()=>{
     connect();
     console.log("Backend server is running");
 })
