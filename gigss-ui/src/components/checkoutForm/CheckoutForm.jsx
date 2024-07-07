@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import {
   PaymentElement,
   LinkAuthenticationElement,
@@ -6,6 +7,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
+const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
@@ -57,7 +59,7 @@ const CheckoutForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: "http://localhost:5173/success",
+        return_url: `${FRONTEND_URL}/success`,
       },
     });
 
