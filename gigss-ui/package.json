@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "install": "npm install --legacy-peer-deps"
+    "install": "npm install --force"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^2.1.2",
