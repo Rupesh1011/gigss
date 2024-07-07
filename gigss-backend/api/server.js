@@ -36,6 +36,10 @@ const connect = async() => {
 app.use(cors({origin:process.env.FRONTEND_URL,credentials:true}));
 app.use(express.json());
 app.use(cookieParser());
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the backend server!');
+});
  
 app.use("/api/auth",authRoute);
 app.use("/api/users",userRoute);
@@ -52,9 +56,9 @@ app.use((err,req, res, next) =>{
   return res.status(errorStatus).send(errorMessage);
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, ()=>{
     connect();
-    console.log("Backend server is running");
+    console.log(`Backend server is running on port ${PORT}`);
 })
