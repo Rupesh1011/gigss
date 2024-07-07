@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "preview": "vite preview",
-    "install": "npm install --force"
+    "install": "npm install --legacy-peer-deps",
+    "build": "npm run install && npm run build"
+    
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^2.1.2",
