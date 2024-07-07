@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
-    "build": "npm run install && npm run build"
-    
+    "build": "npm run install && npm run build",
+    "install": "npm install --force"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^2.1.2",
