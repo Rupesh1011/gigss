@@ -33,7 +33,17 @@ const connect = async() => {
   }
 };
 
-app.use(cors({origin: ['https://gigss.vercel.app'],credentials:true}));
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? 'https://gigss.vercel.app' 
+    : ['http://localhost:5173', 'https://gigss.vercel.app'],
+  credentials: true,
+};
+
+console.log(`Environment: ${process.env.NODE_ENV}`);
+console.log(`CORS origin: ${process.env.FRONTEND_URL}`);
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
  
