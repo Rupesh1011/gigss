@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/success", "destination": "/success" }, // Specific route for success page
+    { "source": "/(.*)", "destination": "/" } // Catch-all for other routes
+  ]
+}
