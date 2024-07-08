@@ -40,7 +40,7 @@ export const login =async (req,res,next) =>{
             isSeller:info.isSeller,
         },`${process.env.JWT_KEY}`); 
         
-        res.cookie("accessToken", token,{httOnly:true}).status(200).send(info);      
+        res.cookie("accessToken", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' }).status(200).send(info);     
 
     } catch (err) {
         console.error(err);
