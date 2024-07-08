@@ -21,7 +21,7 @@ const Success = () => {
     };
 
     makeRequest();
-  }, [payment_intent, navigate]);
+  }, []);
 
   return (
     <div>
