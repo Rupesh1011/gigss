@@ -59,23 +59,10 @@ const CheckoutForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: '/success',
+        return_url: SUCCESS_URL,
       },
       redirect: 'if_required' 
     })
-    .then(function(result) {
-  if (result.error) {
-    // Handle error
-    console.error(result.error.message);
-  } else if (result.paymentIntent.status === 'succeeded') {
-    // Payment succeeded, handle success
-    window.location.href = '/success'; // Redirect to success route
-  }
-})
-.catch(function(error) {
-  // Handle errors during confirmation
-  console.error('Error confirming payment:', error);
-});
 
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
