@@ -59,9 +59,8 @@ const CheckoutForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: SUCCESS_URL,
+        return_url: `${window.location.origin}/success`,
       },
-      redirect: 'if_required' 
     })
 
     if (error.type === "card_error" || error.type === "validation_error") {
