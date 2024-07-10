@@ -69,7 +69,7 @@ const CheckoutForm = () => {
     console.error(result.error.message);
   } else if (result.paymentIntent.status === 'succeeded') {
     // Payment succeeded, handle success
-    window.location.href = "https://giggs.vercel.app/success"; // Redirect to success page
+    window.location.href = "https://gigss.vercel.app/success"; // Redirect to success page
   }
 })
 .catch(function(error) {
