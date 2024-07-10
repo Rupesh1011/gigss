@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-const FRONTEND_URL = import.meta.env.VITE_FRONTEND_URL;
+const SUCCESS_URL = import.meta.env.VITE_SUCCESS_URL;
 
 import {
   PaymentElement,
@@ -59,7 +59,7 @@ const CheckoutForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${FRONTEND_URL}/success`,
+        return_url: SUCCESS_URL,
       },
     });
 
