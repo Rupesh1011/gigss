@@ -61,6 +61,7 @@ const CheckoutForm = () => {
       confirmParams: {
         return_url: SUCCESS_URL,
       },
+      redirect: 'if_required' 
     });
 
     if (error.type === "card_error" || error.type === "validation_error") {
