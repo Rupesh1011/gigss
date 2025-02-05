@@ -11,6 +11,17 @@ export const intent = async (req, res, next) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: gig.price * 100,
     currency: "inr",
+    description: "for project",
+    shipping: {
+      name: "",
+      address: {
+        line1: "510 Townsend St",
+        postal_code: "98140",
+        city: "San Francisco",
+        state: "CA",
+        country: "US",
+      },
+    },
     automatic_payment_methods: {
       enabled: true,
     },
